@@ -27,18 +27,23 @@
 		<div class="reveal">
 			<div class="slides">
 				<section data-state="show-logos">
-					<div style="text-align: left;">
-					<h1>Définition d'une architecture IoT sécurisée et adaptative basée sur la blockchain</h1>
-					<h2>Thèse de doctorat présentée par Axel Moinet</h2>
-					<h3>Le 17 Janvier 2019</h3>
-					<p style="font-size: 20px;">
-						<b>Directeur de thèse :</b> Jean-Luc Baril</br>
-						<b>Co-encadrant de thèse :</b> Benoît Darties</p>
-					<p style="font-size: 20px;">
-						<b>Rapporteurs :</b></br>
-						Andrzej Duda, Professeur à l'INP-Ensimag<br/>
-						Hamamache Kheddouci, Professeur à l'Université Lyon 1
-					</p>
+					<div id="first-logos">
+						<img style="object-fit: contain; max-width: 250px;" alt="bfc_logo" src="content/img/spim.png" />
+						<img style="object-fit: contain; max-width: 250px;" alt="bfc_logo" src="content/img/ubfc.png" />
+						<img style="object-fit: contain; max-width: 250px;" alt="bfc_logo" src="content/img/bfc.png" />
+					</div>
+					<div style="text-align: left; margin-bottom:10px">
+						<h1>Définition d'une architecture IoT sécurisée et adaptative basée sur la blockchain</h1>
+						<h2>Thèse de doctorat présentée par Axel Moinet</h2>
+						<h3>Le 17 Janvier 2019</h3>
+						<p style="font-size: 20px;">
+							<b>Directeur de thèse :</b> Jean-Luc Baril</br>
+							<b>Co-encadrant de thèse :</b> Benoît Darties</p>
+						<p style="font-size: 20px;">
+							<b>Rapporteurs :</b></br>
+							Andrzej Duda, Professeur à l'INP-Ensimag<br/>
+							Hamamache Kheddouci, Professeur à l'Université Lyon 1
+						</p>
 					</div>
 				</section>
 				<section data-state="hide-all">
@@ -100,6 +105,11 @@
 						data-charset="utf-8">
 				</section>
 				<section data-state="show-logos">
+					<div id="last-logos">
+						<img style="object-fit: contain; max-width: 250px;" alt="bfc_logo" src="content/img/spim.png" />
+						<img style="object-fit: contain; max-width: 250px;" alt="bfc_logo" src="content/img/ubfc.png" />
+						<img style="object-fit: contain; max-width: 250px;" alt="bfc_logo" src="content/img/bfc.png" />
+					</div>
 					<div style="text-align: center;">
 					<h1 style="font-size: 50px;">Merci pour votre attention</h1>
 					</div>
@@ -185,6 +195,9 @@
 				bottom: 1vw;
 				left: 1vw;
 			}
+			#footer-left img {
+				border: 0px;
+			}
 			#footer-right {
 				height: 4%;
 				position: absolute;
@@ -208,6 +221,38 @@
 				left: 5%;
 				right: 5%;
 				top: 5%;
+			}
+			#first-logos {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				align-items: center;
+				align-content: stretch;
+				height: 200px;
+				width: 1260px;
+				left: 10px;
+				right: 10px;
+				position: absolute;
+				top: -200px;
+			}
+			#last-logos {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				align-items: center;
+				align-content: stretch;
+				height: 200px;
+				width: 1260px;
+				left: 10px;
+				right: 10px;
+				position: absolute;
+				top: -350px;
+			}
+			#first-logos img {
+				border: 0px;
+			}
+			#last-logos img {
+				border: 0px;
 			}
 			#presentable-icon {
 				display: none;
@@ -252,16 +297,20 @@
 			#presentable-toc ol ol {
 				display: none;
 			}
+			.reveal ul li {
+				font-size: 35px;
+			}
+			.reveal table thead tr th {
+				font-size: 25px;
+			}
+			.reveal table tbody tr td {
+				font-size: 25px;
+			}
 		</style>
 
 		<!-- 2. Create hidden header/footer <div> -->
 		<div id="hidden" style="display:none;">
-			<div id="header">
-				<div id="header-logos">
-					<img style="object-fit: contain; max-width: 250px;" alt="bfc_logo" src="content/img/spim.png" />
-					<img style="object-fit: contain; max-width: 250px;" alt="bfc_logo" src="content/img/ubfc.png" />
-					<img style="object-fit: contain; max-width: 250px;" alt="bfc_logo" src="content/img/bfc.png" />
-				</div>
+			<div id="footer">
 				<div id="footer-left">
 					<img style="object-fit: contain; max-width: 90px" alt="bfc_logo" src="content/img/FEDER_bourgogne.png" />
 					<img style="object-fit: contain; max-width: 90px" alt="bfc_logo" src="content/img/FEDER.png" />
@@ -271,38 +320,49 @@
 					17 Janvier 2019, Dijon
 				</div>
 			</div>
+			<div id="header">
+				<div id="header-logos">
+					<img style="object-fit: contain; max-width: 250px;" alt="bfc_logo" src="content/img/spim.png" />
+					<img style="object-fit: contain; max-width: 250px;" alt="bfc_logo" src="content/img/ubfc.png" />
+					<img style="object-fit: contain; max-width: 250px;" alt="bfc_logo" src="content/img/bfc.png" />
+				</div>
+			</div>
 		</div>
 
 		<script src="jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript">
 			// 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
 			var header = $('#header').html();
+			var footer = $('#footer').html();
 			if ( window.location.search.match( /print-pdf/gi ) ) {
 				Reveal.addEventListener( 'ready', function( event ) {
-				    $('.slide-background').append(header);
+				    $('.slide-background').append(footer);
 				});
 			}
 			else {
 				$('div.reveal').append(header);
+				$('div.reveal').append(footer);
+				var logos_first = document.getElementById('first-logos');
+				logos_first.style.display = "none";
+				var logos_last = document.getElementById('last-logos');
+				logos_last.style.display = "none";
+				Reveal.addEventListener( 'hide-logos', function( event ) {
+					var logos = document.getElementById('header-logos');
+					logos.style.display = "none";
+				});
+				Reveal.addEventListener( 'show-logos', function( event ) {
+					var logos = document.getElementById('header-logos');
+					var presentable_icon = document.getElementById('presentable-icon');
+					logos.style.display = "flex";
+					presentable_icon.style.display = "none";
+				});
+				Reveal.addEventListener( 'hide-all', function( event ) {
+					var logos = document.getElementById('header-logos');
+					var presentable_icon = document.getElementById('presentable-icon');
+					logos.style.display = "none";
+					presentable_icon.style.display = "none";
+				});
 		   }
-		   Reveal.addEventListener( 'hide-logos', function( event ) {
-				var logos = document.getElementById('header-logos');
-				var presentable_icon = document.getElementById('presentable-icon');
-				presentable_icon.style.display = "block";
-				logos.style.display = "none";
-			});
-			Reveal.addEventListener( 'show-logos', function( event ) {
-				var logos = document.getElementById('header-logos');
-				var presentable_icon = document.getElementById('presentable-icon');
-				logos.style.display = "flex";
-				presentable_icon.style.display = "none";
-			});
-			Reveal.addEventListener( 'hide-all', function( event ) {
-				var logos = document.getElementById('header-logos');
-				var presentable_icon = document.getElementById('presentable-icon');
-				logos.style.display = "none";
-				presentable_icon.style.display = "none";
-			});
 		</script>
 	</body>
 </html>
