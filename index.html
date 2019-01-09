@@ -7,7 +7,7 @@
 		<title>reveal.js</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/white.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -20,14 +20,98 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+
+		<link rel="stylesheet" href="presentable/dist/presentable.min.css">
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-state="show-logos">
+					<div style="text-align: left;">
+					<h1>Définition d'une architecture IoT sécurisée et adaptative basée sur la blockchain</h1>
+					<h2>Thèse de doctorat présentée par Axel Moinet</h2>
+					<h3>Le 17 Janvier 2019</h3>
+					<p style="font-size: 20px;">
+						<b>Directeur de thèse :</b> Jean-Luc Baril</br>
+						<b>Co-encadrant de thèse :</b> Benoît Darties</p>
+					<p style="font-size: 20px;">
+						<b>Rapporteurs :</b></br>
+						Andrzej Duda, Professeur à l'INP-Ensimag<br/>
+						Hamamache Kheddouci, Professeur à l'Université Lyon 1
+					</p>
+					</div>
+				</section>
+				<section data-state="hide-all">
+					<h2>Sommaire</h2>
+					<nav id="presentable-toc" class="revealjs"></nav>
+				</section>
+				<section data-state="hide-logos"
+						data-markdown="content/wisenet.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^[N|n]otes?:"
+						data-charset="utf-8">
+				</section>
+				<section data-state="hide-logos"
+						data-markdown="content/etat-art.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^[N|n]otes?:"
+						data-charset="utf-8">
+				</section>
+				<section data-state="hide-logos"
+						data-markdown="content/problematique.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^[N|n]otes?:"
+						data-charset="utf-8">
+				</section>
+				<section data-state="hide-logos"
+						data-markdown="content/nsl.md"
+						data-separator="^\n\n"
+						data-separator-notes="^[N|n]otes?:"
+						data-charset="utf-8">
+				</section>
+				<section data-state="hide-logos"
+						data-markdown="content/batm.md"
+						data-separator="^\n\n"
+						data-separator-notes="^[N|n]otes?:"
+						data-charset="utf-8">
+				</section>
+				<section data-state="hide-logos"
+						data-markdown="content/mlte.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^[N|n]otes?:"
+						data-charset="utf-8">
+				</section>
+				<section data-state="hide-logos"
+						data-markdown="content/cist.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^[N|n]otes?:"
+						data-charset="utf-8">
+				</section>
+				<section data-state="hide-logos"
+						data-markdown="content/conclusion.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^[N|n]otes?:"
+						data-charset="utf-8">
+				</section>
+				<section data-state="show-logos">
+					<div style="text-align: center;">
+					<h1 style="font-size: 50px;">Merci pour votre attention</h1>
+					</div>
+				</section>
 			</div>
 		</div>
+
+		<aside id="presentable-icon" class="revealjs">
+   			<a title="Sommaire" href="#/0/1">
+       			<img alt="Sommaire" src="presentable/dist/icons/revealjs.png"/>
+   			</a>
+		</aside>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
@@ -37,12 +121,187 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				width: 1280,
+				height: 720,
+				margin: 0.1,
+				minScale: 0.2,
+				maxScale: 1.5,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber: true,
+				pdfMaxPagesPerSlide: 1,
+
+				transition: 'slide',
+
+				math: {
+					mathjax: 'MathJax/MathJax.js',
+					config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+				},
+
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        			{ src: 'presentable/dist/presentable.min.js', callback: function() { 
+						presentable.toc({
+							framework: "revealjs",
+							hideNoTitle: true,
+							titles: "h1,.presentable-title",
+							}); } },
+					{ src: 'plugin/math/math.js', async: true },
 				]
+			});
+		</script>
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+				tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+			});
+		</script>
+
+		<style type="text/css">
+			/* 1. Style header/footer <div> so they are positioned as desired. */
+			#header-left {
+				position: absolute;
+				top: 0%;
+				left: 0%;
+			}
+			#header-right {
+				position: absolute;
+				top: 0%;
+				right: 0%;
+			}
+			#footer-left {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: flex-start;
+				align-items: center;
+				align-content: stretch;
+				height: 10%;
+				width: 20%;
+				position: absolute;
+				bottom: 1vw;
+				left: 1vw;
+			}
+			#footer-right {
+				height: 4%;
+				position: absolute;
+				z-index: -1;
+				bottom: 3vw;
+				right: 13vw;
+				text-align: right;
+				font-style: italic;
+				font-size: 1.2vw;
+				font-stretch: 100%; 
+			}
+			#header-logos {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				align-items: center;
+				align-content: stretch;
+				height: 10%;
+				width: 90%;
+				position: absolute;
+				left: 5%;
+				right: 5%;
+				top: 5%;
+			}
+			#presentable-icon {
+				display: none;
+			}
+			.reveal .slide-number {
+				position: absolute;
+				z-index: -1;
+				top: auto;
+				bottom: 1.2vw;
+				height: 5%;
+				right: 9vw;
+				font-size: 1.3vw;
+				text-align: center;
+				background-color: white;
+				color: black;
+				align-content: stretch;
+			}
+			.reveal h1 {
+				font-size: 50px;
+			}
+			.reveal h2 {
+				font-size: 35px;
+			}
+			.reveal h3 {
+				font-size: 25px;
+			}
+			.reveal p {
+				font-size: 20px;
+			}
+			#presentable-toc {
+				overflow: hidden;
+			}
+			#presentable-toc li a.title, #presentable-toc li a.page {
+				display: inline-block;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				font-size: 35px;
+			}
+			#presentable-toc li a.title {
+				width: 90%;
+			}
+			#presentable-toc ol ol {
+				display: none;
+			}
+		</style>
+
+		<!-- 2. Create hidden header/footer <div> -->
+		<div id="hidden" style="display:none;">
+			<div id="header">
+				<div id="header-logos">
+					<img style="object-fit: contain; max-width: 250px;" alt="bfc_logo" src="content/img/spim.png" />
+					<img style="object-fit: contain; max-width: 250px;" alt="bfc_logo" src="content/img/ubfc.png" />
+					<img style="object-fit: contain; max-width: 250px;" alt="bfc_logo" src="content/img/bfc.png" />
+				</div>
+				<div id="footer-left">
+					<img style="object-fit: contain; max-width: 90px" alt="bfc_logo" src="content/img/FEDER_bourgogne.png" />
+					<img style="object-fit: contain; max-width: 90px" alt="bfc_logo" src="content/img/FEDER.png" />
+				</div>
+				<div id="footer-right">
+					Définition d'une architecture IoT sécurisée et adaptative basée sur la blockchain,<br/>
+					17 Janvier 2019, Dijon
+				</div>
+			</div>
+		</div>
+
+		<script src="jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript">
+			// 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
+			var header = $('#header').html();
+			if ( window.location.search.match( /print-pdf/gi ) ) {
+				Reveal.addEventListener( 'ready', function( event ) {
+				    $('.slide-background').append(header);
+				});
+			}
+			else {
+				$('div.reveal').append(header);
+		   }
+		   Reveal.addEventListener( 'hide-logos', function( event ) {
+				var logos = document.getElementById('header-logos');
+				var presentable_icon = document.getElementById('presentable-icon');
+				presentable_icon.style.display = "block";
+				logos.style.display = "none";
+			});
+			Reveal.addEventListener( 'show-logos', function( event ) {
+				var logos = document.getElementById('header-logos');
+				var presentable_icon = document.getElementById('presentable-icon');
+				logos.style.display = "flex";
+				presentable_icon.style.display = "none";
+			});
+			Reveal.addEventListener( 'hide-all', function( event ) {
+				var logos = document.getElementById('header-logos');
+				var presentable_icon = document.getElementById('presentable-icon');
+				logos.style.display = "none";
+				presentable_icon.style.display = "none";
 			});
 		</script>
 	</body>

@@ -1,0 +1,12 @@
+[submodule "MathJax"]
+	path = MathJax
+	url = https://github.com/mathjax/MathJax
+[submodule "jquery"]
+	path = jquery
+	url = https://github.com/jquery/jquery
+[submodule "presentable"]
+	path = presentable
+	url = https://github.com/frederickf/presentable
+[submodule "content"]
+	path = content
+	url = git@github.com:bullekeup/presentation-soutenance.git
