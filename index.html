@@ -65,6 +65,13 @@
 						data-charset="utf-8">
 				</section>
 				<section data-state="hide-logos"
+						data-markdown="content/securite.md"
+						data-separator="^\n\n\n"
+						data-separator-vertical="^\n\n"
+						data-separator-notes="^[N|n]otes?:"
+						data-charset="utf-8">
+				</section>
+				<section data-state="hide-logos"
 						data-markdown="content/problematique.md"
 						data-separator="^\n\n\n"
 						data-separator-vertical="^\n\n"
@@ -142,6 +149,7 @@
 				center: true,
 				slideNumber: true,
 				pdfMaxPagesPerSlide: 1,
+				pdfSeparateFragments: true,
 
 				transition: 'slide',
 
@@ -305,6 +313,14 @@
 			}
 			.reveal table tbody tr td {
 				font-size: 25px;
+			}
+			.reveal .slides section .fragment.step-fade-in-then-out {
+				opacity: 0;
+				display: none;
+			}
+			.reveal .slides section .fragment.step-fade-in-then-out.current-fragment {
+				opacity: 1;
+				display: inline;
 			}
 		</style>
 
