@@ -65,13 +65,6 @@
 						data-charset="utf-8">
 				</section>
 				<section data-state="hide-logos"
-						data-markdown="content/securite.md"
-						data-separator="^\n\n\n"
-						data-separator-vertical="^\n\n"
-						data-separator-notes="^[N|n]otes?:"
-						data-charset="utf-8">
-				</section>
-				<section data-state="hide-logos"
 						data-markdown="content/problematique.md"
 						data-separator="^\n\n\n"
 						data-separator-vertical="^\n\n"
@@ -116,6 +109,7 @@
 					<h1 style="font-size: 50px;">Merci pour votre attention</h1>
 					</div>
 				</section>
+				<section></section>
 			</div>
 		</div>
 
@@ -188,12 +182,10 @@
 			}
 			#footer-left {
 				display: flex;
-				flex-wrap: wrap;
+				flex-wrap: nowrap;
 				justify-content: flex-start;
 				align-items: center;
 				align-content: stretch;
-				height: 10%;
-				width: 20%;
 				position: absolute;
 				bottom: 1vw;
 				left: 1vw;
@@ -202,14 +194,13 @@
 				border: 0px;
 			}
 			#footer-right {
-				height: 4%;
 				position: absolute;
 				z-index: -1;
-				bottom: 3vw;
+				bottom: 2.4vw;
 				right: 13vw;
 				text-align: right;
 				font-style: italic;
-				font-size: 1.2vw;
+				font-size: 1.1vw;
 				font-stretch: 100%; 
 			}
 			#header-logos {
@@ -279,7 +270,7 @@
 			.reveal h2 {
 				font-size: 35px;
 			}
-			.reveal h3 {
+			.reveal h3, .reveal h4 {
 				font-size: 25px;
 			}
 			.reveal p {
